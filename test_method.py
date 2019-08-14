@@ -12,3 +12,6 @@ class TestMethod(unittest.TestCase):
 
     def test_01(self):
         print('这个是测试方法！')
+
+if __name__ == '__main__':
+    unittest.main()
