@@ -27,6 +27,7 @@ class TestMethod(unittest.TestCase):
         res=self.run.run_method(url,"POST",data)
         res=json.loads(res)
         print(res)
+        print("第一个case")
         self.assertEqual(res['errorCode'],1007,'测试失败')
     def test_02(self):
         url = 'http://coding.imooc.com/api/cate'
@@ -42,7 +43,11 @@ class TestMethod(unittest.TestCase):
         res = json.loads(self.run.run_method(url, 'POST', data))
         self.assertEqual(res['errorCode'], 1007, "测试失败")
         print(res)
+        print("第二个case")
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    suite=unittest.TestSuite()
+    suite.addTest(TestMethod("test_02"))
+    unittest.TestRunner().run(suite)
