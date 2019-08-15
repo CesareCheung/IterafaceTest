@@ -4,8 +4,8 @@ import json
 
 class RunMain:
 
-    def __init__(self, url, method, data=None):
-        self.res = self.run_method(url, method, data)
+    # def __init__(self, url, method, data=None):
+    #     self.res = self.run_method(url, method, data)
 
 
     def send_get(self, url, data):
@@ -43,8 +43,6 @@ class RunMain:
             res = self.send_get(url, data)
         elif method == "POST":
             res = self.send_post(url, data)
-        else:
-            print("暂未封装该接口类型！")
         return res
 
 
@@ -55,6 +53,6 @@ if __name__ == '__main__':
         "model_id": "12"
     }
 
-    run = RunMain(url, "GET", data)
+    run = RunMain()
 
-    print(run.res)
+    print(run.run_method(url, 'GET', data))
