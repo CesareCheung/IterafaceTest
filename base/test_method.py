@@ -1,7 +1,8 @@
 import json
 import unittest
-from HTMLTestRunnerCN import HTMLTestRunner
-
+# from base.HTMLTestRunner import HTMLTestRunner
+from base.HTMLTestRunnerCN import HTMLTestRunner
+import HTMLReport
 
 from base.demo import RunMain
 
@@ -58,6 +59,14 @@ if __name__ == '__main__':
     with open(fithpath, 'wb') as fp:
         runner = HTMLTestRunner(
             stream=fp,
-            title='测试报告的标题:测试',
+            title='测试报告的标题:',
             description='测试报告的描述:这是两个测试用例')
         runner.run(suite)
+
+
+    # HTMLReport.TestRunner(
+    #     report_file_name="test",
+    #     title='接口自动化',
+    #     description='ERP项目',
+    #     thread_count=1
+    # ).run(suite)
