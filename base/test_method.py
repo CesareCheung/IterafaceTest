@@ -1,10 +1,13 @@
 import json
 import unittest
+from HTMLTestRunnerCN import HTMLTestRunner
 
-from demo import RunMain
+
+from base.demo import RunMain
 
 
 class TestMethod(unittest.TestCase):
+    """测试"""
 
     def setUp(self):
         self.run = RunMain()
@@ -24,11 +27,12 @@ class TestMethod(unittest.TestCase):
             'cid': '0',
             'errorCode': 1001
         }
-        res=self.run.run_method(url,"POST",data)
-        res=json.loads(res)
+        res = self.run.run_method(url, "POST", data)
+        res = json.loads(res)
         print(res)
         print("第一个case")
-        self.assertEqual(res['errorCode'],1007,'测试失败')
+        self.assertEqual(res['errorCode'], 1007, '测试失败')
+
     def test_02(self):
         url = 'http://coding.imooc.com/api/cate'
         data = {
@@ -47,7 +51,13 @@ class TestMethod(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # unittest.main()
-    suite=unittest.TestSuite()
+    suite = unittest.TestSuite()
+    suite.addTest(TestMethod("test_01"))
     suite.addTest(TestMethod("test_02"))
-    unittest.TestRunner().run(suite)
+    fithpath = '../report/result.html'
+    with open(fithpath, 'wb') as fp:
+        runner = HTMLTestRunner(
+            stream=fp,
+            title='测试报告的标题:测试',
+            description='测试报告的描述:这是两个测试用例')
+        runner.run(suite)
