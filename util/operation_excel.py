@@ -15,7 +15,7 @@ class OperationExcel:
             self.file_name = file_name
             self.sheet_id = sheet_id
         else:
-            self.file_name = '../dataconfig/interface.xlsx'
+            self.file_name = '../dataconfig/case1.xls'
             self.sheet_id = 0
         self.data = self.get_data()
 
