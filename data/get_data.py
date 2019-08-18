@@ -30,7 +30,7 @@ class GetData:
         :param row: 行号
         :return:
         """
-        col = data_config.get_header()
+        col = int(data_config.get_header())
         header = self.opera_excel.get_cell_value(row, col)
         if header == 'yes':
             return data_config.get_header_value()
@@ -44,7 +44,7 @@ class GetData:
         :return:
         """
         # col 列
-        col = data_config.get_run_way()
+        col = int(data_config.get_run_way())
         request_method = self.opera_excel.get_cell_value(row, col)
         return request_method
 
@@ -54,7 +54,7 @@ class GetData:
         :param row: 行号
         :return:
         """
-        col = data_config.get_url()
+        col = int(data_config.get_url())
         url = self.opera_excel.get_cell_value(row, col)
         return url
 
@@ -64,7 +64,7 @@ class GetData:
         :param row:行号
         :return:
         """
-        col = data_config.get_data()
+        col = int(data_config.get_data())
         data = self.opera_excel.get_cell_value(row, col)
         if data == '':
             return None
@@ -86,7 +86,7 @@ class GetData:
         :param row:
         :return:
         """
-        col = data_config.get_expect()
+        col = int(data_config.get_expect())
         expect = self.opera_excel.get_cell_value(row, col)
         if expect == "":
             return None
