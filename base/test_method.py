@@ -1,6 +1,5 @@
 import json
 import unittest
-# from base.HTMLTestRunner import HTMLTestRunner
 from base.HTMLTestRunnerCN import HTMLTestRunner
 import HTMLReport
 
@@ -12,7 +11,6 @@ class TestMethod(unittest.TestCase):
 
     def setUp(self):
         self.run = RunMain()
-
 
     def tearDown(self):
         print('test--->>>tearDown')
@@ -62,7 +60,6 @@ if __name__ == '__main__':
             title='测试报告的标题:',
             description='测试报告的描述:这是两个测试用例')
         runner.run(suite)
-
 
     # HTMLReport.TestRunner(
     #     report_file_name="test",
