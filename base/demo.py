@@ -7,12 +7,10 @@ class RunMain:
     # def __init__(self, url, method, data=None):
     #     self.res = self.run_method(url, method, data)
 
-
     def send_get(self, url, data):
         """
         发送get请求
         :param url:请求地址
-        :param method:类型(GET)
         :param data: 参数
         :return:
         """
@@ -23,7 +21,6 @@ class RunMain:
         """
         发送post请求
         :param url:请求地址
-        :param method:类型(POST)
         :param data: 参数
         :return:
         """
@@ -35,7 +32,7 @@ class RunMain:
         """
         判断请求类型，并进行对应请求调用
         :param url:
-        :param method:
+        :param method:类型(POST/GET)
         :param data:
         :return:
         """
