@@ -4,9 +4,12 @@ import json
 class OperationJson:
     """操作json文件"""
 
-    def get_json(self, file_name):
+    def __init__(self):
+        self.data = self.read_data()
+
+    def read_data(self, file_name='../dataconfig/data.json'):
         """
-        获取json数据
+        读取json文件
         :param file_name:文件路径
         :return:
         """
@@ -14,9 +17,13 @@ class OperationJson:
             data = json.load(fp)
         return data
 
+    def get_data(self, key):
+        """根据关键字获取对应数据"""
+        return self.data[key]
+
 
 if __name__ == '__main__':
-    file_path = "../dataconfig/data.json"
-    operta = OperationJson()
-    print(operta.get_json(file_path)['user'])
-
+    # file_path = "../dataconfig/data.json"
+    opejson = OperationJson()
+    print(opejson.read_data())
+    print(opejson.get_data('addcar'))
