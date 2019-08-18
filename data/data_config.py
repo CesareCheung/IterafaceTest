@@ -77,6 +77,14 @@ def get_result():
 def get_header_value():
     """获取header的值"""
     header={
-        "header":"123445",
-        "cookie":"uuiiiyuuii"
+        "Content-Type":	"application/json",
+        "x_app_name":"zjl",
+        "x_app_network":"WiFi",
+        "x_app_version":"6.8.0",
+        "x_device_name":"iPhone7%2C2",
+        "x_system_type":"ios",
+        "x_system_version":"11.3",
+        "x_api_sign":"bdcd43e68ed310c9c316318f6fa14269",
+        "x_device_id":"fa953659aedc9fc04d8ceaaa560e753e1f8245cd",
+        "x_timestamp":"1554127046"
     }
