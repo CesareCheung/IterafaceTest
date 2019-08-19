@@ -1,6 +1,6 @@
 from base.runmethod import RunMethod
 from data.get_data import GetData
-import json
+
 
 class RunTest:
 
@@ -10,7 +10,7 @@ class RunTest:
 
     def go_on_run(self):
         """程序执行"""
-        res=None
+        res = None
         # 获取用例数
         rows_count = self.data.get_case_lines()
         # 第一行索引为0
@@ -21,11 +21,11 @@ class RunTest:
             data = self.data.get_data_for_json(i)
             header = self.data.is_header(i)
             if is_run:
-                res=self.run_method.run_main(method, url, data)
-            # return res
+                res = self.run_method.run_main(method, url, data)
+                # return res
                 print(res)
 
-if __name__ == '__main__':
-    run=RunTest()
-    run.go_on_run()
 
+if __name__ == '__main__':
+    run = RunTest()
+    run.go_on_run()
