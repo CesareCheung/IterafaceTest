@@ -1,4 +1,5 @@
 import xlrd
+from xlutils.copy import copy
 
 
 # data = xlrd.open_workbook("../dataconfig/interface.xlsx")
@@ -35,9 +36,23 @@ class OperationExcel:
         tables = self.data
         return tables.nrows
 
-    def get_cell_value(self,row,col):
+    def get_cell_value(self, row, col):
         """获取单元格的内容"""
-        return self.data.cell_value(row,col)
+        return self.data.cell_value(row, col)
+
+    def write_value(self, row, col, value):
+        """
+        回写数据到excel
+        :param row:行
+        :param col:列
+        :param value:返回值
+        :return:
+        """
+        read_data = xlrd.open_workbook(self.file_name)
+        write_data = copy(read_data)
+        sheet_data = write_data.get_sheet(0)
+        sheet_data.write(row, col, value)
+        write_data.save(self.file_name)
 
 
 if __name__ == '__main__':
@@ -45,4 +60,4 @@ if __name__ == '__main__':
     opera.get_data()
     print(opera.get_data().nrows)
     print(opera.get_lines())
-    print(opera.get_cell_value(1,2))
+    print(opera.get_cell_value(1, 2))
