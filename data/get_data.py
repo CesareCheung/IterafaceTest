@@ -92,3 +92,13 @@ class GetData:
             return None
         else:
             return expect
+
+    def write_result(self,row,value):
+        """
+        写入结果数据
+        :param row:
+        :param col:
+        :return:
+        """
+        col=int(data_config.get_result())
+        self.opera_excel.write_value(row,col,value)
