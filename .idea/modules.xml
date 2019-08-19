@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ApiTest.iml" filepath="$PROJECT_DIR$/.idea/ApiTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IterafaceTest.iml" filepath="$PROJECT_DIR$/.idea/IterafaceTest.iml" />
     </modules>
   </component>
 </project>
