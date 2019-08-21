@@ -54,51 +54,49 @@ class OperationExcel:
         sheet_data.write(row, col, value)
         write_data.save(self.file_name)
 
-    def get_row_data(self,case_id):
+    def get_row_data(self, case_id):
         """
         根据对应的case_id获取对应行的内容
         :param case_id:测试用例ID
         :return:
         """
-        row_num=self.get_row_num(case_id)  #根据对应的case_id拿到对应的行号
-        row_data=self.get_row_value(row_num)
+        row_num = self.get_row_num(case_id)  # 根据对应的case_id拿到对应的行号
+        row_data = self.get_row_value(row_num)
         return row_data
 
-
-    def get_row_num(self,case_id):
+    def get_row_num(self, case_id):
         """
         根据对应的case_id找到对应的行号
         :param case_id:
         :return:
         """
-        num=0
-        cols_data=self.get_cols_data()
+        num = 0
+        cols_data = self.get_cols_data()
         for col_data in cols_data:
             if case_id in col_data:
                 return num
-            num+=1
+            num += 1
 
-
-    def get_row_value(self,row):
+    def get_row_value(self, row):
         """
         根据行号，找到该行的内容
         :param row:行号
         :return:
         """
-        tables=self.data
-        row_data=tables.row_values(row)
+        tables = self.data
+        row_data = tables.row_values(row)
         return row_data
 
-    def get_cols_data(self,col_id):
+    def get_cols_data(self, col_id=None):
         """
         获取某一列的内容
         :param col_id:列号
         :return:
         """
-        if col_id !=None:
-            cols=self.data.col_values(col_id)
+        if col_id != None:
+            cols = self.data.col_values(col_id)
         else:
-            cols=self.data.col_values(0)
+            cols = self.data.col_values(0)
         return cols
 
 
