@@ -13,6 +13,8 @@ class RunTest:
 
     def go_on_run(self):
         """程序执行"""
+        pass_count=[]
+        fail_count=[]
         res = None
         # 获取用例数
         rows_count = self.data.get_case_lines()
@@ -42,8 +44,13 @@ class RunTest:
                 # print(res)
                 if self.com_util.is_contain(expect, res):
                     self.data.write_result(i, "Pass")
+                    pass_count.append(i)
                 else:
-                    self.data.write_result(i, "Fail")
+                    self.data.write_result(i, res)
+                    fail_count.append(i)
+
+        print(f"通过用例数：{len(pass_count)}")
+        print(f"失败用例数：{len(fail_count)}")
 
 
 if __name__ == '__main__':
