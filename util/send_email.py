@@ -7,9 +7,9 @@ class SendEmail:
     global send_user
     global email_host
     global password
-    send_user = "xxxx@163.com"
+    send_user = "zhangweixu1379@163.com"
     email_host = "smtp.163.com"
-    password = 'xxxxxx'
+    password = 'zhangweixu0060'
 
     def send_mail(self, user_list, sub, content):
         """
@@ -19,7 +19,7 @@ class SendEmail:
         :param content: 内容
         :return:
         """
-        user = "xxxx.com" + "<" + send_user + ">"
+        user = "zhangweixu1379@163.com" + "<" + send_user + ">"
         message = MIMEText(content, _subtype="plain", _charset="utf-8")
         message['Subject'] = sub
         message['From'] = user
@@ -30,10 +30,25 @@ class SendEmail:
         server.sendmail(user, user_list, message.as_string())
         server.close()
 
+    def send_main(self, pass_list, fail_list):
+        """
+        发送报告
+        :param pass_list:
+        :param fail_list:
+        :return:
+        """
+        pass_num = float(len(pass_list))
+        fail_num = float(len(fail_list))
+        count_num = pass_num + fail_num
+        pass_result = "%.2f%%" % (pass_num / count_num * 100)
+        fail_result = "%.2f%%" % (fail_num / count_num * 100)
+        user_list = ['1689719986@qq.com']
+
+        sub = '接口自动化测试报告'
+        content = f"此次接口测试一共运行用例为：{count_num}，通过个数为：{pass_num}，失败个数为：{fail_num}，通过率为：{pass_result}"
+        self.send_mail(user_list, sub, content)
+
 
 if __name__ == '__main__':
     send = SendEmail()
-    user_list = ['1689719986@qq.com']
-    sub = '测试主题'
-    content = "测试"
-    send.send_mail(user_list, sub, content)
+    send.send_main([1,2,3,4],[1,2])
