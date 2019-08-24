@@ -93,12 +93,51 @@ class GetData:
         else:
             return expect
 
-    def write_result(self,row,value):
+    def write_result(self, row, value):
         """
         写入结果数据
         :param row:
         :param col:
         :return:
         """
-        col=int(data_config.get_result())
-        self.opera_excel.write_value(row,col,value)
+        col = int(data_config.get_result())
+        self.opera_excel.write_value(row, col, value)
+
+    def get_depend_key(self, row):
+        """
+        获取依赖数据的key
+        :param row:行号
+        :return:
+        """
+        col = int(data_config.get_data_depend())
+        depend_key = self.opera_excel.get_cell_value(row,col)
+        if depend_key == "":
+            return None
+        else:
+            return depend_key
+
+    def is_depend(self, row):
+        """
+        判断是否有case依赖
+        :param row:行号
+        :return:
+        """
+        col = int(data_config.get_case_depend())  # 获取是否存在数据依赖列
+        depend_case_id = self.opera_excel.get_cell_value(row,col)
+        if depend_case_id == "":
+            return None
+        else:
+            return depend_case_id
+
+    def get_depend_field(self, row):
+        """
+        获取依赖字段
+        :param row:
+        :return:
+        """
+        col = int(data_config.get_field_depend())
+        data = self.opera_excel.get_cell_value(row,col)
+        if data == "":
+            return None
+        else:
+            return data
