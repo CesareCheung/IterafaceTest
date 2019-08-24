@@ -1,6 +1,7 @@
 from base.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommonUtil
+from data.dependent_data import DependentData
 
 
 class RunTest:
@@ -17,20 +18,32 @@ class RunTest:
         rows_count = self.data.get_case_lines()
         # 第一行索引为0
         for i in range(1, rows_count):
-            url = self.data.get_request_url(i)
-            method = self.data.get_request_method(i)
             is_run = self.data.get_is_run(i)
-            data = self.data.get_data_for_json(i)
-            expect = self.data.get_expcet_data(i)
-            header = self.data.is_header(i)
             if is_run:
-                res = self.run_method.run_main(method, url, data)
+                url = self.data.get_request_url(i)
+                method = self.data.get_request_method(i)
+                request_data = self.data.get_data_for_json(i)
+                expect = self.data.get_expcet_data(i)
+                header = self.data.is_header(i)
+                depend_case = self.data.is_depend(i)
+
+                if depend_case != None:
+                    self.depend_data = DependentData(depend_case)
+                    # 获取依赖的响应数据
+                    depend_response_data = self.depend_data.get_data_for_key(i)
+                    # 获取依赖的key
+                    depend_key = self.data.get_depend_field(i)
+                    # 更新请求字段
+                    request_data[depend_key] = depend_response_data
+                else:
+                    pass
+                res = self.run_method.run_main(method, url, request_data)
                 # return res
                 # print(res)
                 if self.com_util.is_contain(expect, res):
-                    self.data.write_result(i,"Pass")
+                    self.data.write_result(i, "Pass")
                 else:
-                    self.data.write_result(i,"Failed")
+                    self.data.write_result(i, "Fail")
 
 
 if __name__ == '__main__':
