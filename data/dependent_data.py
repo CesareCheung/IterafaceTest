@@ -42,8 +42,6 @@ class DependentData:
         """
         depend_data = self.data.get_depend_key(row)
         response_data = self.run_dependent()
-        print(type(depend_data))
-        print(type(response_data))
         json_exe = parse(depend_data)
         madle = json_exe.find(response_data)
         return [math.value for math in madle][0]
