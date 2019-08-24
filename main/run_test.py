@@ -2,6 +2,7 @@ from base.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommonUtil
 from data.dependent_data import DependentData
+from util.send_email import SendEmail
 
 
 class RunTest:
@@ -10,11 +11,12 @@ class RunTest:
         self.run_method = RunMethod()
         self.data = GetData()
         self.com_util = CommonUtil()
+        self.send_email = SendEmail()
 
     def go_on_run(self):
         """程序执行"""
-        pass_count=[]
-        fail_count=[]
+        pass_count = []
+        fail_count = []
         res = None
         # 获取用例数
         rows_count = self.data.get_case_lines()
@@ -48,6 +50,8 @@ class RunTest:
                 else:
                     self.data.write_result(i, res)
                     fail_count.append(i)
+        # 发送邮件
+        # self.send_email.send_main(pass_count, fail_count)
 
         print(f"通过用例数：{len(pass_count)}")
         print(f"失败用例数：{len(fail_count)}")
