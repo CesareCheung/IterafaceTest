@@ -7,7 +7,6 @@ class GetData:
 
     def __init__(self):
         self.opera_excel = OperationExcel()
-        self.opera_json = OperationJson()
 
     def get_case_lines(self):
         """获取excel行数，即case的个数"""
@@ -77,7 +76,8 @@ class GetData:
         :param row:
         :return:
         """
-        request_data = self.opera_json.get_data(self.get_request_data(row))
+        opera_json = OperationJson()
+        request_data = opera_json.get_data(self.get_request_data(row))
         return request_data
 
     def get_expcet_data(self, row):
@@ -110,7 +110,7 @@ class GetData:
         :return:
         """
         col = int(data_config.get_data_depend())
-        depend_key = self.opera_excel.get_cell_value(row,col)
+        depend_key = self.opera_excel.get_cell_value(row, col)
         if depend_key == "":
             return None
         else:
@@ -123,7 +123,7 @@ class GetData:
         :return:
         """
         col = int(data_config.get_case_depend())  # 获取是否存在数据依赖列
-        depend_case_id = self.opera_excel.get_cell_value(row,col)
+        depend_case_id = self.opera_excel.get_cell_value(row, col)
         if depend_case_id == "":
             return None
         else:
@@ -136,7 +136,7 @@ class GetData:
         :return:
         """
         col = int(data_config.get_field_depend())
-        data = self.opera_excel.get_cell_value(row,col)
+        data = self.opera_excel.get_cell_value(row, col)
         if data == "":
             return None
         else:
