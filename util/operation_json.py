@@ -26,4 +26,4 @@ if __name__ == '__main__':
     # file_path = "../dataconfig/data.json"
     opejson = OperationJson()
     print(opejson.read_data())
-    print(opejson.get_data('addcar'))
+    print(opejson.get_data('filtrate'))
