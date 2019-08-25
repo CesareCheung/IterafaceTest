@@ -39,9 +39,9 @@ class RunTest:
                     depend_key = self.data.get_depend_field(i)
                     # 更新请求字段
                     request_data[depend_key] = depend_response_data
-                else:
-                    pass
                 res = self.run_method.run_main(method, url, request_data)
+                # print(res)
+                # print(request_data)
                 # return res
                 # print(res)
                 if self.com_util.is_contain(expect, res):
