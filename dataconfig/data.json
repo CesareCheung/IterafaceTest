@@ -1,5 +1,5 @@
 {
-  "user": {"username": "13760159524","password": "123456"},
-  "addcar": {"add_id": "1234","user_id": "34345"},
-  "filtrate": {"type_id":2, "brand_id":1, "model_id":111}
+  "user": {"username": "1111","password": "123456"},
+  "filtrate": {"type_id":"2", "brand_id":"1", "model_id":"111" },
+  "search": {"page":"1","keyword":"oppo","type":"12"}
 }
