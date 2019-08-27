@@ -29,10 +29,10 @@ class DependentData:
         run_method = RunMethod()
         row_num = self.opera_excel.get_row_num(self.case_id)
         request_data = self.data.get_data_for_json(row_num)
-        header = self.data.is_header(row_num)
+        # header = self.data.is_header(row_num)
         method = self.data.get_request_method(row_num)
         url = self.data.get_request_url(row_num)
-        res = run_method.run_main(method, url, request_data, header)
+        res = run_method.run_main(method, url, request_data)
         return json.loads(res)
 
     def get_data_for_key(self, row):
@@ -42,6 +42,4 @@ class DependentData:
         """
         depend_data = self.data.get_depend_key(row)
         response_data = self.run_dependent()
-        json_exe = parse(depend_data)
-        madle = json_exe.find(response_data)
-        return [math.value for math in madle][0]
+        return [match.value for match in parse(depend_data).find(response_data)][0]
