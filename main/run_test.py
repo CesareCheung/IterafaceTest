@@ -3,7 +3,9 @@ from data.get_data import GetData
 from util.common_util import CommonUtil
 from data.dependent_data import DependentData
 from util.send_email import SendEmail
-
+from util.operation_header import OperationHeader
+from util.operation_json import OperationJson
+import json
 
 class RunTest:
 
@@ -39,9 +41,26 @@ class RunTest:
                     depend_key = self.data.get_depend_field(i)
                     # 更新请求字段
                     request_data[depend_key] = depend_response_data
-                res = self.run_method.run_main(method, url, request_data)
+
+                if header == "write":
+                    res = self.run_method.run_main(method, url, request_data)
+                    op_header = OperationHeader(res)
+                    op_header.write_token()
+                elif header == 'yes':
+                    op_json = OperationJson("../dataconfig/cookie.json")
+                    token = op_json.get_data('data')
+                    request_data=dict(request_data,**token)
+                    # request_data=json.dumps(request_data)
+                    # print(type(request_data))
+                    # print(request_data)
+
+                    res = self.run_method.run_main(method, url, request_data)
+                else:
+                    res = self.run_method.run_main(method, url, request_data)
+
+
                 # print(res)
-                # print(request_data)
+
                 # return res
                 # print(res)
                 if self.com_util.is_contain(expect, res):
