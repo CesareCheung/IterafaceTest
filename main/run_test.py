@@ -49,20 +49,12 @@ class RunTest:
                 elif header == 'yes':
                     op_json = OperationJson("../dataconfig/cookie.json")
                     token = op_json.get_data('data')
-                    request_data=dict(request_data,**token)
-                    # request_data=json.dumps(request_data)
-                    # print(type(request_data))
-                    # print(request_data)
+                    request_data=dict(request_data,**token) # 把请求数据与登录token合并，并作为请求数据
 
                     res = self.run_method.run_main(method, url, request_data)
                 else:
                     res = self.run_method.run_main(method, url, request_data)
 
-
-                # print(res)
-
-                # return res
-                # print(res)
                 if self.com_util.is_contain(expect, res):
                     self.data.write_result(i, "Pass")
                     pass_count.append(i)
