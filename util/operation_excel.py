@@ -38,7 +38,9 @@ class OperationExcel:
 
     def get_cell_value(self, row, col):
         """获取单元格的内容"""
-        return self.data.cell_value(row, col)
+        tables=self.data
+        cell = tables.cell_value(row, col)
+        return cell
 
     def write_value(self, row, col, value):
         """
@@ -75,7 +77,7 @@ class OperationExcel:
         for col_data in cols_data:
             if case_id in col_data:
                 return num
-            num += 1
+            num = num+1
 
     def get_row_value(self, row):
         """
