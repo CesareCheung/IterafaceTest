@@ -24,7 +24,7 @@ if __name__ == '__main__':
     url = "http://testuser.zhaoliangji.com/api/login/index"
 
     data = {
-        "username": "13760159524",
+        "username": "1111",
         "password": "123456"
     }
     run_method=RunMethod()
