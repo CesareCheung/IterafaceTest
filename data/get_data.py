@@ -31,8 +31,8 @@ class GetData:
         """
         col = int(data_config.get_header())
         header = self.opera_excel.get_cell_value(row, col)
-        if header == 'yes':
-            return data_config.get_header_value()
+        if header != '':
+            return header
         else:
             return None
 
@@ -67,8 +67,7 @@ class GetData:
         data = self.opera_excel.get_cell_value(row, col)
         if data == '':
             return None
-        else:
-            return data
+        return data
 
     def get_data_for_json(self, row):
         """
