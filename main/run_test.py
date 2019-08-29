@@ -5,8 +5,6 @@ from data.dependent_data import DependentData
 from util.send_email import SendEmail
 from util.operation_header import OperationHeader
 from util.operation_json import OperationJson
-import unittest
-from base.HTMLTestRunnerCN import HTMLTestRunner
 
 
 class RunTest:
@@ -65,7 +63,7 @@ class RunTest:
                         self.data.write_result(i, res)
                         fail_count.append(i)
                 else:
-                    print(f"用例ID为:case-{i}预期结果不能为空")
+                    print(f"用例ID：case-{i}，预期结果不能为空")
 
         # 发送邮件
         # self.send_email.send_main(pass_count, fail_count)
