@@ -40,12 +40,24 @@
   "confirm_shouji_str_null": {
     "from_where": "1",
     "sk": "2",
-    "token": "${apptoken}",
     "user_id": "9093261"
   },
   "order_list": {
     "x_system_version": "12.0",
     "order_status": 0,
     "page": 2
+  },
+  "order_snapshot_order_is_null": {
+    "order_no": "M1903293618673701222"
+  },
+  "order_snapshot_order_is_empty": {
+
+  },
+"pay_sign": {
+  "product_id":"250929"
+},
+  "order_no_pay_sign": {
+    "order_no":"",
+	"product_id":"250929"
   }
 }
