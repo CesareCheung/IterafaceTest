@@ -5,7 +5,9 @@ from data.dependent_data import DependentData
 from util.send_email import SendEmail
 from util.operation_header import OperationHeader
 from util.operation_json import OperationJson
-import json
+import unittest
+from base.HTMLTestRunnerCN import HTMLTestRunner
+
 
 class RunTest:
 
@@ -49,18 +51,22 @@ class RunTest:
                 elif header == 'yes':
                     op_json = OperationJson("../dataconfig/cookie.json")
                     token = op_json.get_data('data')
-                    request_data=dict(request_data,**token) # 把请求数据与登录token合并，并作为请求数据
+                    request_data = dict(request_data, **token)  # 把请求数据与登录token合并，并作为请求数据
 
                     res = self.run_method.run_main(method, url, request_data)
                 else:
                     res = self.run_method.run_main(method, url, request_data)
 
-                if self.com_util.is_contain(expect, res):
-                    self.data.write_result(i, "Pass")
-                    pass_count.append(i)
+                if expect != None:
+                    if self.com_util.is_contain(expect, res):
+                        self.data.write_result(i, "Pass")
+                        pass_count.append(i)
+                    else:
+                        self.data.write_result(i, res)
+                        fail_count.append(i)
                 else:
-                    self.data.write_result(i, res)
-                    fail_count.append(i)
+                    print(f"用例ID为:case-{i}预期结果不能为空")
+
         # 发送邮件
         # self.send_email.send_main(pass_count, fail_count)
 
