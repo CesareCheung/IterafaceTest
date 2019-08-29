@@ -1,5 +1,5 @@
 
-**框架结构**：**Python+Excel+Requests**
+**框架结构**：**Python3+Excel+Requests**
 
 
 通过操作excel数据读取对应测试数据，及操作json文件读取对应请求数据，通过run_test运行测试数据
