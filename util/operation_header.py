@@ -1,6 +1,5 @@
 import json
 from util.operation_json import OperationJson
-import requests
 from base.runmethod import RunMethod
 class OperationHeader:
 
