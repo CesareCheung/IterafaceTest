@@ -32,6 +32,7 @@ class RunTest:
                 expect = self.data.get_expcet_data(i)
                 header = self.data.is_header(i)
                 depend_case = self.data.is_depend(i)
+                change_sql = self.data.get_sql_data(i)
 
                 if depend_case != None:
                     self.depend_data = DependentData(depend_case)
@@ -41,6 +42,9 @@ class RunTest:
                     depend_key = self.data.get_depend_field(i)
                     # 更新请求字段
                     request_data[depend_key] = depend_response_data
+                # 修改sql
+                if change_sql != None:
+                    self.data.updata_sql(i)
 
                 if header == "write":
                     res = self.run_method.run_main(method, url, request_data)
