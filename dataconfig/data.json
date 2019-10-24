@@ -1,6 +1,6 @@
 {
   "user": {
-    "username": "1111",
+    "username": "13760159524",
     "password": "123456"
   },
   "filtrate": {
@@ -51,13 +51,133 @@
     "order_no": "M1903293618673701222"
   },
   "order_snapshot_order_is_empty": {
-
   },
-"pay_sign": {
-  "product_id":"250929"
-},
+  "pay_sign": {
+    "product_id": "250929"
+  },
   "order_no_pay_sign": {
-    "order_no":"",
-	"product_id":"250929"
-  }
+    "order_no": "",
+    "product_id": "250929"
+  },
+  "bargain_list": {
+    "page": "1",
+    "tab_id": "1"
+  },
+  "bargain_list_tab_id": {
+    "page": "1",
+    "tab_id": "12"
+  },
+  "new_filter_data": {
+    "type_id": "2",
+    "brand_id": "1",
+    "model_id": "111"
+  },
+  "new_filter_data_typd_id": {
+    "type_id": "22222",
+    "brand_id": "1",
+    "model_id": "111"
+  },
+  "new_filter_data_typd_null": {
+    "type_id": "",
+    "brand_id": "1",
+    "model_id": "111"
+  },
+  "new_filter_data_brand_id_null": {
+    "type_id": "2",
+    "brand_id": "",
+    "model_id": "111"
+  },
+  "seach_count": {
+    "type_id": "1",
+    "brand_id": "2",
+    "model_id": "111",
+    "prop_keyword": "",
+    "input_keywor": "iphone",
+    "price": "",
+    "price_v2": "",
+    "charge_num": ""
+  },
+  "new_search_list": {
+    "page": "1",
+    "user_id": "2"
+  },
+  "parts_info": {
+    "product_id": "1",
+    "user_id": "212"
+  },
+  "product_vs_list": {
+    "page": "2"
+  },
+  "product_vs_action": {
+    "product_id": "235493:219262"
+  },
+  "new_get_product_cate_v1": {
+    "v": "5.7",
+    "p": "ios"
+  },
+  "update_warning_sku": {
+    "sku_id": "1",
+    "category": "1"
+  },
+  "update_warning_sku_sku_id": {
+    "sku_id": "",
+    "category": "1"
+  },
+  "screen_notice_push": {
+    "phone": "13000000000",
+    "type_id": "1",
+    "brand_id": "1",
+    "model_id": "16",
+    "price": "3999",
+    "screen_item": "5:16;8:6;9:3;10:20;11:20;11:23;12:25"
+  },
+  "pay_success_recommend": {
+    "p": "ios",
+    "v": "5.6.0",
+    "order_no": "M201846854646546"
+  },
+  "get_footprint_product_list": {
+    "page": 1,
+    "device_id": "36c9f627767d302a6a15e1f42a269b2c8f7ef5aa",
+    "date_tag": "1",
+    "user_id": "2481"
+  },
+  "del_footprint": {
+    "product_type": 1,
+    "device_id": "36c9f627767d302a6a15e1f42a269b2c8f7ef5aa",
+    "product_id": 1
+  },
+  "get_product_package": {
+    "user_id":"2773838",
+	"device_id":"36c9f627767d302a6a15e1f42a269b2c8f7ef5aa",
+	"product_id":"1"
+  },
+  "get_product_package_product_id": {
+    "user_id":"2773838",
+	"device_id":"36c9f627767d302a6a15e1f42a269b2c8f7ef5aa",
+	"product_id":""
+  },
+  "new_bonus_list": {
+    "user_id":"3845961",
+	"page":"1",
+	"status":"1"
+  },
+  "new_favorite_del": {
+    "user_id":"3845961",
+	"product_ids":"112",
+	"state":"1"
+  },
+  "activitylist": {
+    "page":"1"
+  },
+  "activitydetail": {
+    "activity_id":"11"
+},
+  "activitydetail_id_null": {
+    "activity_id":" "
+},
+  "activitydetail_id_0": {
+    "activity_id":" 0"
+}
+
 }
