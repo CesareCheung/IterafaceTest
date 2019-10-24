@@ -13,7 +13,7 @@ class RunTest:
         self.run_method = RunMethod()
         self.data = GetData()
         self.com_util = CommonUtil()
-        self.send_email = SendEmail()
+        # self.send_email = SendEmail()
 
     def go_on_run(self):
         """程序执行"""
