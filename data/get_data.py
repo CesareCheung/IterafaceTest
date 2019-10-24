@@ -1,6 +1,7 @@
 from util.operation_excel import OperationExcel
 from data import data_config
 from util.operation_json import OperationJson
+from util.connect_db import OperationMysql
 
 
 class GetData:
@@ -140,3 +141,19 @@ class GetData:
             return None
         else:
             return data
+
+    def get_sql_data(self, row):
+        """获取更新SQL数据"""
+        col = int(data_config.get_sql())
+        data = self.opera_excel.get_cell_value(row, col)
+        if data == "":
+            return None
+        else:
+            return data
+
+        # 通过SQL修改数据
+
+    def updata_sql(self, row):
+        op_mysql = OperationMysql()
+        sql = self.get_sql_data(row)
+        res = op_mysql.updata_one(sql)
