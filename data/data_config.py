@@ -12,7 +12,8 @@ class global_var:
     field_depend = '8'
     data = '9'
     expect = '10'
-    result = '11'
+    sql='11'
+    result = '12'
 
 
 def get_id():
@@ -77,3 +78,7 @@ def get_result():
 def get_header_value():
     """获取header的值"""
     return global_var.header
+
+def get_sql():
+    """获取SQL"""
+    return global_var.sql
