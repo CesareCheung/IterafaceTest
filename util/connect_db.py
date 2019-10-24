@@ -9,7 +9,7 @@ class OperationMysql:
             port=3306,
             user='1111',
             passwd='111',
-            db='test',
+            db='111',
             charset='utf8',
             cursorclass=pymysql.cursors.DictCursor
         )
@@ -30,5 +30,5 @@ class OperationMysql:
 
 if __name__ == '__main__':
     op_mysql = OperationMysql()
-    res = op_mysql.search_one("SELECT * from odi_order WHERE order_no='11111'")
+    res = op_mysql.search_one("SELECT * from odi_order WHERE order_no='1111'")
     print(res)
