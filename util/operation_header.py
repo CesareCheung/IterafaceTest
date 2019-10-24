@@ -20,7 +20,7 @@ class OperationHeader:
 
 if __name__ == '__main__':
 
-    url = "http://testuser.zhaoliangji.com/api/login/index"
+    url = "http://baidu.com"
 
     data = {
         "username": "1111",
