@@ -8,9 +8,9 @@ class SendEmail:
     global send_user
     global email_host
     global password
-    send_user = "XXX@163.com"
+    send_user = "11222.com"
     email_host = "smtp.163.com"
-    password = 'XXX'
+    password = '1233444'
 
     def send_mail(self, user_list, sub, content):
         """
@@ -20,7 +20,7 @@ class SendEmail:
         :param content: 内容
         :return:
         """
-        user = "XXX@163.com" + "<" + send_user + ">"
+        user = "11222.com" + "<" + send_user + ">"
         message = MIMEMultipart()
         message['Subject'] = sub
         message['From'] = user
@@ -51,8 +51,7 @@ class SendEmail:
         count_num = pass_num + fail_num
         pass_result = "%.2f%%" % (pass_num / count_num * 100)
         fail_result = "%.2f%%" % (fail_num / count_num * 100)
-        user_list = ['hhhh@qq.com','aaaa@qq.com']
-
+        user_list = ['csarezhang@dingtalk.com']
         sub = '接口自动化测试报告'
         content = f"此次接口测试一共运行用例为：{count_num}，通过个数为：{pass_num}，失败个数为：{fail_num}，通过率为：{pass_result},报告详情请查看附件！"
         self.send_mail(user_list, sub, content)
