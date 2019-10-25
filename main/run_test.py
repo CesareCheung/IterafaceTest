@@ -44,7 +44,7 @@ class RunTest:
                     request_data[depend_key] = depend_response_data
                 # 修改sql
                 if change_sql != None:
-                    self.data.updata_sql(i)
+                    self.data.update_sql(i)
 
                 if header == "write":
                     res = self.run_method.run_main(method, url, request_data)
