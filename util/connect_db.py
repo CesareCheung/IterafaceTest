@@ -21,7 +21,7 @@ class OperationMysql:
         result = self.cur.fetchone()
         return result
     # 更新SQL
-    def updata_one(self, sql):
+    def update_one(self, sql):
         self.cur.execute(sql)
         self.conn.commit()
         self.conn.close()
