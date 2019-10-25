@@ -153,7 +153,7 @@ class GetData:
 
         # 通过SQL修改数据
 
-    def updata_sql(self, row):
+    def update_sql(self, row):
         op_mysql = OperationMysql()
         sql = self.get_sql_data(row)
-        res = op_mysql.updata_one(sql)
+        res = op_mysql.update_one(sql)
