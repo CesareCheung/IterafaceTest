@@ -33,31 +33,34 @@ class RunTest:
                 header = self.data.is_header(i)
                 depend_case = self.data.is_depend(i)
                 change_sql = self.data.get_sql_data(i)
+                try:
+                    if depend_case != None:
+                        self.depend_data = DependentData(depend_case)
+                        # 获取依赖的响应数据
+                        depend_response_data = self.depend_data.get_data_for_key(i)
+                        # 获取依赖的key
+                        depend_key = self.data.get_depend_field(i)
+                        # 更新请求字段
+                        request_data[depend_key] = depend_response_data
+                    # 修改sql
+                    if change_sql != None:
+                        self.data.update_sql(i)
 
-                if depend_case != None:
-                    self.depend_data = DependentData(depend_case)
-                    # 获取依赖的响应数据
-                    depend_response_data = self.depend_data.get_data_for_key(i)
-                    # 获取依赖的key
-                    depend_key = self.data.get_depend_field(i)
-                    # 更新请求字段
-                    request_data[depend_key] = depend_response_data
-                # 修改sql
-                if change_sql != None:
-                    self.data.update_sql(i)
+                    if header == "write":
+                        res = self.run_method.run_main(method, url, request_data)
+                        op_header = OperationHeader(res)
+                        op_header.write_token()
+                    elif header == 'yes':
+                        op_json = OperationJson("../dataconfig/cookie.json")
+                        token = op_json.get_data('data')
+                        request_data = dict(request_data, **token)  # 把请求数据与登录token合并，并作为请求数据
 
-                if header == "write":
-                    res = self.run_method.run_main(method, url, request_data)
-                    op_header = OperationHeader(res)
-                    op_header.write_token()
-                elif header == 'yes':
-                    op_json = OperationJson("../dataconfig/cookie.json")
-                    token = op_json.get_data('data')
-                    request_data = dict(request_data, **token)  # 把请求数据与登录token合并，并作为请求数据
-
-                    res = self.run_method.run_main(method, url, request_data)
-                else:
-                    res = self.run_method.run_main(method, url, request_data)
+                        res = self.run_method.run_main(method, url, request_data)
+                    else:
+                        res = self.run_method.run_main(method, url, request_data)
+                except Exception as e:
+                    res="运行失败"
+                    print(f"第{i}条用例{res},错误原因{e}")
 
                 if expect != None:
                     if self.com_util.is_contain(expect, res):
