@@ -1,5 +1,6 @@
 import pymysql.cursors
-import json
+
+# python3用的是pymysql，python2用的是MySQLdb
 
 
 class OperationMysql:
@@ -20,6 +21,7 @@ class OperationMysql:
         self.cur.execute(sql)
         result = self.cur.fetchone()
         return result
+
     # 更新SQL
     def update_one(self, sql):
         self.cur.execute(sql)
