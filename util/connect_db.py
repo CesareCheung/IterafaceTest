@@ -1,4 +1,4 @@
-import pymysql.cursors
+import pymysql
 
 # python3用的是pymysql，python2用的是MySQLdb
 
