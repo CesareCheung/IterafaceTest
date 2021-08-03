@@ -51,7 +51,7 @@ class SendEmail:
         count_num = pass_num + fail_num
         pass_result = "%.2f%%" % (pass_num / count_num * 100)
         fail_result = "%.2f%%" % (fail_num / count_num * 100)
-        user_list = ['csarezhang@dingtalk.com']
+        user_list = ['XXX@dingtalk.com']
         sub = '接口自动化测试报告'
         content = f"此次接口测试一共运行用例为：{count_num}，通过个数为：{pass_num}，失败个数为：{fail_num}，通过率为：{pass_result},报告详情请查看附件！"
         self.send_mail(user_list, sub, content)
